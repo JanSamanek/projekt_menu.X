@@ -82,7 +82,7 @@ void __interrupt() UART_TMR1_ISR(void)
         else
         {
             message1.data[RX_i] = zprava;
-            RX_i ++;
+            RX_i++;
         }
     }
    
@@ -167,6 +167,7 @@ void main(void) {
     char textSTOP1 [17];
     char textSTOP2 [17];
     unsigned int rand_num;
+    unsigned int level = 1;
                
     game_state = GAME_START;
     char position = 0;
@@ -415,22 +416,13 @@ void main(void) {
                         delay = 62500;
                         sprintf(textSTOP1,"GAME OVER                  ");
                         LCD_ShowString(1, textSTOP1);
-                        sprintf(textSTOP2,"Nova hra: BTN1              ");
+                        sprintf(textSTOP2,"level: %u              ", level);
                         LCD_ShowString(2,textSTOP2);
-                        if(BTN1)
-                        {
-                            rand_num = rand() % 1023;
-                            game_state = GAME_CONTINUE;
-                        }
-                        else if(BTN4)
-                        {
-                            __delay_ms(80);
-                            if(BTN4)
-                            {
-                                menu_position = 6;
-                                game_state = GAME_OFF;
-                            }
-                        }
+                        
+                        __delay_ms(2000);
+                        level = 1;
+                        menu_position = 6;
+                        game_state = GAME_OFF;
 
                         break;
 
@@ -471,6 +463,7 @@ void main(void) {
                         LCD_ShowString(1, textLEVEL);
                         if(BTN1)
                         {
+                            level++;
                             w = -1;
                             led_stateHRA = 0;
                             delay = delay/2;

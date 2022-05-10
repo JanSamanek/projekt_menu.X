@@ -9911,7 +9911,7 @@ void __attribute__((picinterrupt(("")))) UART_TMR1_ISR(void)
     if(RC1IE && RC1IF)
     {
         zprava = RCREG1;
-        if(zprava == '\n')
+        if(zprava == '.')
         {
             message1.length = RX_i;
             RX_i = 0;
@@ -9920,7 +9920,7 @@ void __attribute__((picinterrupt(("")))) UART_TMR1_ISR(void)
         else
         {
             message1.data[RX_i] = zprava;
-            RX_i ++;
+            RX_i++;
         }
     }
 
@@ -10005,6 +10005,7 @@ void main(void) {
     char textSTOP1 [17];
     char textSTOP2 [17];
     unsigned int rand_num;
+    unsigned int level = 1;
 
     game_state = GAME_START;
     char position = 0;
@@ -10253,22 +10254,13 @@ void main(void) {
                         delay = 62500;
                         sprintf(textSTOP1,"GAME OVER                  ");
                         LCD_ShowString(1, textSTOP1);
-                        sprintf(textSTOP2,"Nova hra: BTN1              ");
+                        sprintf(textSTOP2,"level: %u              ", level);
                         LCD_ShowString(2,textSTOP2);
-                        if(PORTCbits.RC0)
-                        {
-                            rand_num = rand() % 1023;
-                            game_state = GAME_CONTINUE;
-                        }
-                        else if(PORTAbits.RA2)
-                        {
-                            _delay((unsigned long)((80)*(32e6/4000.0)));
-                            if(PORTAbits.RA2)
-                            {
-                                menu_position = 6;
-                                game_state = GAME_OFF;
-                            }
-                        }
+
+                        _delay((unsigned long)((2000)*(32e6/4000.0)));
+                        level = 1;
+                        menu_position = 6;
+                        game_state = GAME_OFF;
 
                         break;
 
@@ -10309,6 +10301,7 @@ void main(void) {
                         LCD_ShowString(1, textLEVEL);
                         if(PORTCbits.RC0)
                         {
+                            level++;
                             w = -1;
                             led_stateHRA = 0;
                             delay = delay/2;
