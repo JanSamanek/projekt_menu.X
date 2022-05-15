@@ -5,9 +5,9 @@ Linker command line:
 -W-3 --edf=C:\Program Files\Microchip\xc8\v2.36\pic\dat\en_msgs.txt -cn \
   -h+dist/default/debug\projekt_menu.X.debug.sym \
   --cmf=dist/default/debug\projekt_menu.X.debug.cmf -z -Q18F46K22 \
-  -oC:\Users\jands\AppData\Local\Temp\xcAsajc.4 --defsym=__MPLAB_BUILD=1 \
+  -oC:\Users\jands\AppData\Local\Temp\xcAsfn0.4 --defsym=__MPLAB_BUILD=1 \
   -Mdist/default/debug/projekt_menu.X.debug.map \
-  --md=C:\Users\jands\AppData\Local\Temp\xcAsajc.dat -E1 -ver=XC8 Compiler \
+  --md=C:\Users\jands\AppData\Local\Temp\xcAsfn0.dat -E1 -ver=XC8 Compiler \
   --acfsm=1493 -ACODE=00h-0FFFFh -ACONST=00h-0FFFFh \
   -ASMALLCONST=01000h-010FFhx240 -AMEDIUMCONST=01000h-0FFFFh \
   -ACOMRAM=01h-05Fh -AABS1=00h-0F37h -ABIGRAM=01h-0F37h \
@@ -27,7 +27,7 @@ Linker command line:
   -pfarbss=FARRAM,fardata=FARRAM,nvFARRAM=FARRAM \
   -pintsave_regs=BIGRAM,bigbss=BIGRAM,bigdata=BIGRAM -pbss=RAM \
   -pidata=CODE,irdata=CODE,ibigdata=CODE,ifardata=CODE -prparam=COMRAM \
-  C:\Users\jands\AppData\Local\Temp\xcAsajc.o \
+  C:\Users\jands\AppData\Local\Temp\xcAsfn0.o \
   dist/default/debug\projekt_menu.X.debug.o 
 
 Object code version is 3.11
@@ -37,7 +37,7 @@ Machine type is 18F46K22
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\jands\AppData\Local\Temp\xcAsajc.o
+C:\Users\jands\AppData\Local\Temp\xcAsfn0.o
                 idloc                            200000   200000        8        0       5
                 config                           300000   300000        E        0       4
                 init                                168      168        4        4       0
@@ -47,7 +47,7 @@ dist/default/debug\projekt_menu.X.debug.o
                 idloc                            200000   200000        8        0       5
                 config                           300000   300000        E        0       4
                 temp                                 57       57        1        1       1
-                mediumconst                        FE3A     FE3A      1C6     7F1D       0
+                mediumconst                        FE40     FE40      1C0     7F20       0
                 text33                             197A     197A       70        4       0
                 text31                             1DE2     1DE2       1C      EB8       0
                 text30                             1E56     1E56        A      EB8       0
@@ -84,7 +84,7 @@ dist/default/debug\projekt_menu.X.debug.o
                 cstackCOMRAM                          1        1       4E        1       1
                 cstackBANK0                          60       60       99       60       1
                 cstackBANK1                         100      100       A7      100       1
-                cstackBANK2                         267      267        C      200       1
+                cstackBANK2                         267      267        E      200       1
                 bssBANK2                            200      200       67      200       1
                 dataBANK1                           1A7      1A7       2F      100       1
                 bssBANK1                            1D6      1D6       2A      100       1
@@ -141,7 +141,7 @@ TOTAL           Name                               Link     Load   Length     Sp
         CLASS   SMALLCONST     
 
         CLASS   MEDIUMCONST    
-                mediumconst                        FE3A     FE3A      1C6         0
+                mediumconst                        FE40     FE40      1C0         0
 
         CLASS   COMRAM         
                 temp                                 57       57        1         1
@@ -164,7 +164,7 @@ TOTAL           Name                               Link     Load   Length     Sp
                 bssBANK1                            1D6      1D6       2A         1
 
         CLASS   BANK2          
-                cstackBANK2                         267      267        C         1
+                cstackBANK2                         267      267        E         1
                 bssBANK2                            200      200       67         1
 
         CLASS   BANK3          
@@ -220,9 +220,9 @@ SEGMENTS        Name                           Load    Length   Top    Selector 
                 intcode                        000008  001D67  001D6F         4       0  CODE    
                 cstackBANK0                    000060  000099  0000F9        60       1  BANK0   
                 cstackBANK1                    000100  000100  000200       100       1  BANK1   
-                bssBANK2                       000200  000073  000273       200       1  BANK2   
+                bssBANK2                       000200  000075  000275       200       1  BANK2   
                 text6                          001D70  0000F2  001E62       EB8       0  CODE    
-                mediumconst                    00FE3A  0001C6  010000      7F1D       0  MEDIUMCO
+                mediumconst                    00FE40  0001C0  010000      7F20       0  MEDIUMCO
 
 
 UNUSED ADDRESS RANGES
@@ -235,7 +235,7 @@ UNUSED ADDRESS RANGES
         BANK13           000D00-000DFF              100
         BANK14           000E00-000EFF              100
         BANK15           000F00-000F37               38
-        BANK2            000273-0002FF               8D
+        BANK2            000275-0002FF               8B
         BANK3            000300-0003FF              100
         BANK4            000400-0004FF              100
         BANK5            000500-0005FF              100
@@ -245,23 +245,23 @@ UNUSED ADDRESS RANGES
         BANK9            000900-0009FF              100
         BIGRAM           000058-00005F                8
                          0000F9-0000FF                7
-                         000273-000F37              CC5
+                         000275-000F37              CC3
         BIGSFR           000F38-000FFC               C5
         CODE             000006-000007                2
                          001D6F-001D6F                1
-                         001E62-00FE39             DFD8
+                         001E62-00FE3F             DFDE
         COMRAM           000058-00005F                8
         CONST            000006-000007                2
                          001D6F-001D6F                1
-                         001E62-00FE39             DFD8
+                         001E62-00FE3F             DFDE
         EEDATA           F00000-F003FF              400
         MEDIUMCONST      001D6F-001D6F                1
-                         001E62-00FE39             DFD8
+                         001E62-00FE3F             DFDE
         RAM              0000F9-0000FF                7
-                         000273-000F37              100
+                         000275-000F37              100
         SFR              000F38-000FFC               28
         SMALLCONST       001D6F-001D6F                1
-                         001E62-00FE39              100
+                         001E62-00FE3F              100
 
                                   Symbol Table
 
@@ -436,7 +436,7 @@ __Hrparam                rparam       000000
 __Hsfr                   sfr          000000
 __Hsmallconst            smallconst   000000
 __Hspace_0               (abs)        010000
-__Hspace_1               (abs)        000273
+__Hspace_1               (abs)        000275
 __Hspace_2               (abs)        000000
 __Hspace_4               (abs)        60000E
 __Hstack                 stack        000000
@@ -532,7 +532,7 @@ __Lintentry              intentry     000000
 __Lintret                intret       000000
 __Lintsave_regs          intsave_regs 000000
 __Lirdata                irdata       000000
-__Lmediumconst           mediumconst  00FE3A
+__Lmediumconst           mediumconst  00FE40
 __LnvFARRAM              nvFARRAM     000000
 __Lnvbit                 nvbit        000000
 __Lnvrram                nvrram       000000
@@ -589,7 +589,7 @@ __Ltext7                 text7        000000
 __Ltext8                 text8        000000
 __Ltext9                 text9        000000
 __S0                     (abs)        010000
-__S1                     (abs)        000273
+__S1                     (abs)        000275
 __S4                     (abs)        000000
 __S5                     (abs)        000000
 ___awmod                 text22       0017C8
@@ -649,14 +649,14 @@ __end_of_sprintf         text2        001BE0
 __end_of_stoa            text15       0012C4
 __end_of_strlen          text16       001D0A
 __end_of_strncmp         text14       001492
-__end_of_tabulka         mediumconst  00FEBB
+__end_of_tabulka         mediumconst  00FEC1
 __end_of_uart_init       text1        001E16
 __end_of_utoa            text9        001142
 __end_of_vfpfcnvrt       text8        000F42
 __end_of_vfprintf        text7        001B8E
 __end_ofi2_driveLED      text33       0019EA
 __initialization         cinit        001A58
-__mediumconst            mediumconst  00FE3A
+__mediumconst            mediumconst  00FE40
 __pbssBANK1              bssBANK1     0001D6
 __pbssBANK2              bssBANK2     000200
 __pbssCOMRAM             bssCOMRAM    00004F
@@ -670,7 +670,7 @@ __pdataCOMRAM            dataCOMRAM   000055
 __pidataBANK1            idataBANK1   001D40
 __pidataCOMRAM           idataCOMRAM  001E60
 __pintcode               intcode      000008
-__pmediumconst           mediumconst  00FE3A
+__pmediumconst           mediumconst  00FE40
 __ptext0                 text0        00016C
 __ptext1                 text1        001DFE
 __ptext10                text10       001706
@@ -730,11 +730,11 @@ _sprintf                 text2        001B8E
 _stoa                    text15       001142
 _strlen                  text16       001CD4
 _strncmp                 text14       0013B4
-_tabulka                 mediumconst  00FE3B
+_tabulka                 mediumconst  00FE41
 _uart_init               text1        001DFE
 _utoa                    text9        000F42
 _vfpfcnvrt               text8        000C2C
-_vfpfcnvrt$2668          cstackBANK0  000068
+_vfpfcnvrt$2669          cstackBANK0  000068
 _vfprintf                text7        001B2C
 _w                       dataBANK1    0001D4
 _width                   bssBANK1     0001D8
@@ -761,18 +761,19 @@ isa$xinst                (abs)        000000
 main@F6537               dataBANK1    0001A7
 main@F6541               dataBANK1    0001D1
 main@cursor              cstackBANK0  0000F6
-main@j                   cstackBANK2  000272
-main@k                   cstackBANK1  0001A3
-main@led_state           cstackBANK2  000267
+main@j                   cstackBANK2  000274
+main@k                   cstackBANK2  000267
+main@led_state           cstackBANK1  0001A5
+main@level               cstackBANK1  0001A3
 main@menu_names          cstackBANK0  00008F
-main@menu_position       cstackBANK2  000270
-main@position            cstackBANK2  000271
-main@pot1                cstackBANK2  00026A
-main@pot2                cstackBANK2  00026C
-main@potHRA              cstackBANK2  000268
+main@menu_position       cstackBANK1  0001A6
+main@position            cstackBANK2  000273
+main@pot1                cstackBANK2  00026F
+main@pot2                cstackBANK2  000271
+main@potHRA              cstackBANK2  00026B
 main@potenciometer1      cstackBANK1  00019D
 main@potenciometer2      cstackBANK1  00019F
-main@rand_num            cstackBANK2  00026E
+main@rand_num            cstackBANK2  00026D
 main@sin_final           cstackBANK1  0001A1
 main@text1               cstackBANK1  000133
 main@text1M              cstackBANK0  0000B2
@@ -910,7 +911,7 @@ C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\doprnt.c estimated s
 
 shared
 		__initialization		CODE           	1A58	0000	92
-		_tabulka       		MEDIUMCONST    	FE3B	0000	128
+		_tabulka       		MEDIUMCONST    	FE41	0000	128
 		i2_driveLED    		CODE           	197A	0000	112
 
 shared estimated size: 332

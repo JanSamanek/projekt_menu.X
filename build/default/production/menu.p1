@@ -2278,94 +2278,94 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $ ! != -> . . _PORTAbits 0 2 `i -> 0 `i 882  ]
 "208
 [; ;menu.c: 208:                 {
-[; ;menu.c: 208:                         sprintf(textLEVEL, "Next level: BTN1          ");
+[; ;menu.c: 208:                         LCD_Clear();
 {
 "209
 [; ;menu.c: 209:                     _delay((unsigned long)((80)*(32e6/4000.0)));
-[; ;menu.c: 209:                         LCD_ShowString(1, textLEVEL);
+[; ;menu.c: 209:                         while(1)
 [e ( __delay (1 -> * -> -> 80 `i `d / .32e6 .4000.0 `ul ]
 "210
 [; ;menu.c: 210:                     if(PORTAbits.RA2)
-[; ;menu.c: 210:                         if(PORTCbits.RC0)
+[; ;menu.c: 210:                         {
 [e $ ! != -> . . _PORTAbits 0 2 `i -> 0 `i 883  ]
 "211
 [; ;menu.c: 211:                     {
-[; ;menu.c: 211:                         {
+[; ;menu.c: 211:                         sprintf(textLEVEL, "Next level: BTN1          ");
 {
 "212
 [; ;menu.c: 212:                         menu_position = 6;
-[; ;menu.c: 212:                             level++;
+[; ;menu.c: 212:                         LCD_ShowString(1, textLEVEL);
 [e = _menu_position -> -> 6 `i `uc ]
 "213
 [; ;menu.c: 213:                         break;
-[; ;menu.c: 213:                             w = -1;
+[; ;menu.c: 213:                         if(PORTCbits.RC0)
 [e $U 878  ]
 "214
 [; ;menu.c: 214:                     }
-[; ;menu.c: 214:                             led_stateHRA = 0;
+[; ;menu.c: 214:                         {
 }
 [e :U 883 ]
 "215
 [; ;menu.c: 215:                 }
-[; ;menu.c: 215:                             delay = delay/2;
+[; ;menu.c: 215:                             level++;
 }
 [e :U 882 ]
 "217
 [; ;menu.c: 217:                 }
-[; ;menu.c: 217:                             game_state = GAME_CONTINUE;
+[; ;menu.c: 217:                             led_stateHRA = 0;
 }
 [e :U 876 ]
 [e $U 877  ]
 [e :U 878 ]
 "219
 [; ;menu.c: 219:             break;
-[; ;menu.c: 219:                         else if(PORTAbits.RA2)
+[; ;menu.c: 219:                             rand_num = rand() % 1023;
 [e $U 873  ]
 "221
 [; ;menu.c: 221:         case 1:
-[; ;menu.c: 221:                             _delay((unsigned long)((80)*(32e6/4000.0)));
+[; ;menu.c: 221:                             break;
 [e :U 884 ]
 "223
 [; ;menu.c: 223:             LCD_Clear();
-[; ;menu.c: 223:                             {
+[; ;menu.c: 223:                         else if(PORTAbits.RA2)
 [e ( _LCD_Clear ..  ]
 "224
 [; ;menu.c: 224:             sprintf(textUART,"zprava naopak          ");
-[; ;menu.c: 224:                                 menu_position = 6;
+[; ;menu.c: 224:                         {
 [e ( _sprintf (1 , &U _textUART :s 2C ]
 "225
 [; ;menu.c: 225:             LCD_ShowString(1,textUART);
-[; ;menu.c: 225:                                 game_state = GAME_OFF;
+[; ;menu.c: 225:                             _delay((unsigned long)((80)*(32e6/4000.0)));
 [e ( _LCD_ShowString (2 , -> -> 1 `i `uc &U _textUART ]
 "227
 [; ;menu.c: 227:             while(1){
-[; ;menu.c: 227:                         }
+[; ;menu.c: 227:                             {
 [e :U 886 ]
 {
 "228
 [; ;menu.c: 228:                 if(message1.full)
-[; ;menu.c: 228: 
+[; ;menu.c: 228:                                 menu_position = 6;
 [e $ ! != -> . _message1 1 `i -> 0 `i 888  ]
 "229
 [; ;menu.c: 229:                 {
-[; ;menu.c: 229:                         break;
+[; ;menu.c: 229:                                 game_state = GAME_OFF;
 {
 "230
 [; ;menu.c: 230:                     message1.full = 0;
-[; ;menu.c: 230:                     }
+[; ;menu.c: 230:                                 break;
 [e = . _message1 1 -> -> 0 `i `uc ]
 "231
 [; ;menu.c: 231:                     TX1IE = 1;
-[; ;menu.c: 231:                 break;
+[; ;menu.c: 231:                             }
 [e = _TX1IE -> -> 1 `i `b ]
 "232
 [; ;menu.c: 232:                 }
-[; ;menu.c: 232:                     }
+[; ;menu.c: 232:                         }
 }
 [e :U 888 ]
 "233
 [; ;menu.c: 233:                 if(PORTAbits.RA2)
-[; ;menu.c: 233:             break;
+[; ;menu.c: 233:                         }
 [e $ ! != -> . . _PORTAbits 0 2 `i -> 0 `i 889  ]
 "234
 [; ;menu.c: 234:                 {
@@ -2373,26 +2373,32 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 "235
 [; ;menu.c: 235:                     _delay((unsigned long)((80)*(32e6/4000.0)));
-[; ;menu.c: 235:         case 6:
+[; ;menu.c: 235:                         break;
 [e ( __delay (1 -> * -> -> 80 `i `d / .32e6 .4000.0 `ul ]
 "236
 [; ;menu.c: 236:                     if(PORTAbits.RA2)
+[; ;menu.c: 236:                     }
 [e $ ! != -> . . _PORTAbits 0 2 `i -> 0 `i 890  ]
 "237
 [; ;menu.c: 237:                     {
+[; ;menu.c: 237:                 break;
 {
 "238
 [; ;menu.c: 238:                         menu_position = 6;
+[; ;menu.c: 238:                     }
 [e = _menu_position -> -> 6 `i `uc ]
 "239
 [; ;menu.c: 239:                         break;
+[; ;menu.c: 239:             break;
 [e $U 887  ]
 "240
 [; ;menu.c: 240:                     }
+[; ;menu.c: 240: 
 }
 [e :U 890 ]
 "241
 [; ;menu.c: 241:                 }
+[; ;menu.c: 241:         case 6:
 }
 [e :U 889 ]
 "242
@@ -2823,53 +2829,68 @@ Version 4.0 HI-TECH Software Intermediate Code
 "461
 [e :U 952 ]
 "462
-[e ( _sprintf (1 , &U _textLEVEL :s 13C ]
+[e ( _LCD_Clear ..  ]
 "463
-[e ( _LCD_ShowString (2 , -> -> 1 `i `uc &U _textLEVEL ]
-"464
-[e $ ! != -> . . _PORTCbits 0 0 `i -> 0 `i 953  ]
-"465
-{
-"466
-[e ++ _level -> -> 1 `i `ui ]
-"467
-[e = _w -U -> 1 `i ]
-"468
-[e = _led_stateHRA -> -> 0 `i `uc ]
-"469
-[e = _delay / _delay -> -> 2 `i `ui ]
-"470
-[e = _rand_num -> % ( _rand ..  -> 1023 `i `ui ]
-"471
-[e = _game_state . `E6520 2 ]
-"472
-}
-[e $U 954  ]
-"473
-[e :U 953 ]
-[e $ ! != -> . . _PORTAbits 0 2 `i -> 0 `i 955  ]
-"474
-{
-"475
-[e ( __delay (1 -> * -> -> 80 `i `d / .32e6 .4000.0 `ul ]
-"476
-[e $ ! != -> . . _PORTAbits 0 2 `i -> 0 `i 956  ]
-"477
-{
-"478
-[e = _menu_position -> -> 6 `i `uc ]
-"479
-[e = _game_state . `E6520 4 ]
-"480
-}
-[e :U 956 ]
-"481
-}
-[e :U 955 ]
 [e :U 954 ]
+"464
+{
+"465
+[e ( _sprintf (1 , &U _textLEVEL :s 13C ]
+"466
+[e ( _LCD_ShowString (2 , -> -> 1 `i `uc &U _textLEVEL ]
+"467
+[e $ ! != -> . . _PORTCbits 0 0 `i -> 0 `i 956  ]
+"468
+{
+"469
+[e ++ _level -> -> 1 `i `ui ]
+"470
+[e = _w -U -> 1 `i ]
+"471
+[e = _led_stateHRA -> -> 0 `i `uc ]
+"472
+[e = _delay / _delay -> -> 2 `i `ui ]
+"473
+[e = _rand_num -> % ( _rand ..  -> 1023 `i `ui ]
+"474
+[e = _game_state . `E6520 2 ]
+"475
+[e $U 955  ]
+"476
+}
+[e $U 957  ]
+"477
+[e :U 956 ]
+[e $ ! != -> . . _PORTAbits 0 2 `i -> 0 `i 958  ]
+"478
+{
+"479
+[e ( __delay (1 -> * -> -> 80 `i `d / .32e6 .4000.0 `ul ]
+"480
+[e $ ! != -> . . _PORTAbits 0 2 `i -> 0 `i 959  ]
+"481
+{
+"482
+[e = _menu_position -> -> 6 `i `uc ]
 "483
-[e $U 932  ]
+[e = _game_state . `E6520 4 ]
 "484
+[e $U 955  ]
+"485
+}
+[e :U 959 ]
+"486
+}
+[e :U 958 ]
+[e :U 957 ]
+"487
+}
+[e :U 953 ]
+[e $U 954  ]
+[e :U 955 ]
+"489
+[e $U 932  ]
+"490
 }
 [e $U 932  ]
 [e :U 933 ]
@@ -2879,88 +2900,88 @@ Version 4.0 HI-TECH Software Intermediate Code
  , $ -> . `E6520 3 `ui 952
  932 ]
 [e :U 932 ]
-"485
+"491
 [e $U 931  ]
-"486
+"492
 }
 [e :U 929 ]
 [e $U 930  ]
 [e :U 931 ]
-"487
+"493
 [e $U 873  ]
-"489
-[e :U 957 ]
-"491
-[e ( _sprintf (1 , , (. , &U _text1M :s 14C &U _cursor + &U _menu_names * -> * -> 5 `i -> _position `i `x -> -> # *U &U _menu_names `i `x ]
-"492
-[e ( _LCD_ShowString (2 , -> -> 1 `i `uc &U _text1M ]
-"494
-[e ( _sprintf (1 , (. , &U _text2M :s 15C + + &U _menu_names * -> * -> 5 `i -> _position `i `x -> -> # *U &U _menu_names `i `x * -> -> 5 `i `x -> -> # *U + &U _menu_names * -> * -> 5 `i -> _position `i `x -> -> # *U &U _menu_names `i `x `i `x ]
 "495
-[e ( _LCD_ShowString (2 , -> -> 2 `i `uc &U _text2M ]
+[e :U 960 ]
 "497
-[e = _game_state . `E6520 0 ]
-"499
-[e $ ! && != -> . . _PORTAbits 0 4 `i -> 0 `i ! == -> _position `i -> 5 `i 958  ]
+[e ( _sprintf (1 , , (. , &U _text1M :s 14C &U _cursor + &U _menu_names * -> * -> 5 `i -> _position `i `x -> -> # *U &U _menu_names `i `x ]
+"498
+[e ( _LCD_ShowString (2 , -> -> 1 `i `uc &U _text1M ]
 "500
-{
+[e ( _sprintf (1 , (. , &U _text2M :s 15C + + &U _menu_names * -> * -> 5 `i -> _position `i `x -> -> # *U &U _menu_names `i `x * -> -> 5 `i `x -> -> # *U + &U _menu_names * -> * -> 5 `i -> _position `i `x -> -> # *U &U _menu_names `i `x `i `x ]
 "501
-[e ( __delay (1 -> * -> -> 80 `i `d / .32e6 .4000.0 `ul ]
-"502
-[e $ ! != -> . . _PORTAbits 0 4 `i -> 0 `i 959  ]
+[e ( _LCD_ShowString (2 , -> -> 2 `i `uc &U _text2M ]
 "503
-{
-"504
-[e ++ _position -> -> 1 `i `uc ]
+[e = _game_state . `E6520 0 ]
 "505
-}
-[e :U 959 ]
+[e $ ! && != -> . . _PORTAbits 0 4 `i -> 0 `i ! == -> _position `i -> 5 `i 961  ]
 "506
-}
-[e $U 960  ]
+{
 "507
-[e :U 958 ]
-[e $ ! && != -> . . _PORTCbits 0 0 `i -> 0 `i ! == -> _position `i -> 0 `i 961  ]
-"508
-{
-"509
 [e ( __delay (1 -> * -> -> 80 `i `d / .32e6 .4000.0 `ul ]
-"510
-[e $ ! != -> . . _PORTCbits 0 0 `i -> 0 `i 962  ]
-"511
+"508
+[e $ ! != -> . . _PORTAbits 0 4 `i -> 0 `i 962  ]
+"509
 {
-"512
-[e -- _position -> -> 1 `i `uc ]
-"513
+"510
+[e ++ _position -> -> 1 `i `uc ]
+"511
 }
 [e :U 962 ]
-"514
+"512
 }
 [e $U 963  ]
-"515
+"513
 [e :U 961 ]
-[e $ ! != -> . . _PORTAbits 0 3 `i -> 0 `i 964  ]
-"516
+[e $ ! && != -> . . _PORTCbits 0 0 `i -> 0 `i ! == -> _position `i -> 0 `i 964  ]
+"514
 {
-"517
+"515
 [e ( __delay (1 -> * -> -> 80 `i `d / .32e6 .4000.0 `ul ]
-"518
-[e $ ! != -> . . _PORTAbits 0 3 `i -> 0 `i 965  ]
-"519
+"516
+[e $ ! != -> . . _PORTCbits 0 0 `i -> 0 `i 965  ]
+"517
 {
-"520
-[e = _menu_position _position ]
-"521
+"518
+[e -- _position -> -> 1 `i `uc ]
+"519
 }
 [e :U 965 ]
-"522
+"520
 }
+[e $U 966  ]
+"521
 [e :U 964 ]
-[e :U 963 ]
-[e :U 960 ]
+[e $ ! != -> . . _PORTAbits 0 3 `i -> 0 `i 967  ]
+"522
+{
 "523
-[e $U 873  ]
+[e ( __delay (1 -> * -> -> 80 `i `d / .32e6 .4000.0 `ul ]
 "524
+[e $ ! != -> . . _PORTAbits 0 3 `i -> 0 `i 968  ]
+"525
+{
+"526
+[e = _menu_position _position ]
+"527
+}
+[e :U 968 ]
+"528
+}
+[e :U 967 ]
+[e :U 966 ]
+[e :U 963 ]
+"529
+[e $U 873  ]
+"530
 }
 [e $U 873  ]
 [e :U 874 ]
@@ -2970,312 +2991,312 @@ Version 4.0 HI-TECH Software Intermediate Code
  , $ -> 3 `i 905
  , $ -> 4 `i 917
  , $ -> 5 `i 928
- , $ -> 6 `i 957
+ , $ -> 6 `i 960
  873 ]
 [e :U 873 ]
-"525
+"531
 }
 [e :U 870 ]
 [e $U 871  ]
 [e :U 872 ]
-"526
+"532
 [e $UE 869  ]
-"527
+"533
 [e :UE 869 ]
 }
 "252
 [p x PLLCFG  =  ON       ]
-"490
+"496
 [p x PLLCFG  =  ON       ]
-"528
+"534
 [v _driveLED `(v ~T0 @X0 1 ef1`uc ]
 {
 [e :U _driveLED ]
 [v _in `uc ~T0 @X0 1 r1 ]
 [f ]
-"529
-[e = _LATD2 -> ~ & -> _in `i -> 1 `i `b ]
-"530
-[e = _LATD3 -> ~ ? != & -> _in `i -> 2 `i -> 0 `i : -> 1 `i -> 0 `i `b ]
-"531
-[e = _LATC4 -> ~ ? != & -> _in `i -> 4 `i -> 0 `i : -> 1 `i -> 0 `i `b ]
-"532
-[e = _LATD4 -> ~ ? != & -> _in `i -> 8 `i -> 0 `i : -> 1 `i -> 0 `i `b ]
-"533
-[e = _LATD5 -> ~ ? != & -> _in `i -> 16 `i -> 0 `i : -> 1 `i -> 0 `i `b ]
-"534
-[e = _LATD6 -> ~ ? != & -> _in `i -> 32 `i -> 0 `i : -> 1 `i -> 0 `i `b ]
 "535
-[e :UE 966 ]
-}
+[e = _LATD2 -> ~ & -> _in `i -> 1 `i `b ]
+"536
+[e = _LATD3 -> ~ ? != & -> _in `i -> 2 `i -> 0 `i : -> 1 `i -> 0 `i `b ]
+"537
+[e = _LATC4 -> ~ ? != & -> _in `i -> 4 `i -> 0 `i : -> 1 `i -> 0 `i `b ]
 "538
+[e = _LATD4 -> ~ ? != & -> _in `i -> 8 `i -> 0 `i : -> 1 `i -> 0 `i `b ]
+"539
+[e = _LATD5 -> ~ ? != & -> _in `i -> 16 `i -> 0 `i : -> 1 `i -> 0 `i `b ]
+"540
+[e = _LATD6 -> ~ ? != & -> _in `i -> 32 `i -> 0 `i : -> 1 `i -> 0 `i `b ]
+"541
+[e :UE 969 ]
+}
+"544
 [v _SPIWrite `(v ~T0 @X0 1 ef2`uc`uc ]
 {
 [e :U _SPIWrite ]
 [v _channel `uc ~T0 @X0 1 r1 ]
 [v _data `uc ~T0 @X0 1 r2 ]
 [f ]
-"540
+"546
 [v _msb `uc ~T0 @X0 1 a ]
 [v _lsb `uc ~T0 @X0 1 a ]
-"541
-[e = _LATB3 -> -> 0 `i `b ]
-"543
-[e = _msb -> | -> _channel `i >> -> _data `i -> 4 `i `uc ]
-"544
-[e = _lsb -> & << -> _data `i -> 4 `i -> 255 `i `uc ]
-"546
-[e = _SSPBUF _msb ]
 "547
-[e $U 968  ]
-[e :U 969 ]
-[e :U 968 ]
-[e $ ! _SSP1IF 969  ]
-[e :U 970 ]
-"548
-[e = _SSP1IF -> -> 0 `i `b ]
+[e = _LATB3 -> -> 0 `i `b ]
+"549
+[e = _msb -> | -> _channel `i >> -> _data `i -> 4 `i `uc ]
 "550
-[e = _SSPBUF _lsb ]
-"551
+[e = _lsb -> & << -> _data `i -> 4 `i -> 255 `i `uc ]
+"552
+[e = _SSPBUF _msb ]
+"553
 [e $U 971  ]
 [e :U 972 ]
 [e :U 971 ]
 [e $ ! _SSP1IF 972  ]
 [e :U 973 ]
-"552
-[e = _SSP1IF -> -> 0 `i `b ]
 "554
-[e = _LATB3 -> -> 1 `i `b ]
-"555
-[e :UE 967 ]
-}
+[e = _SSP1IF -> -> 0 `i `b ]
+"556
+[e = _SSPBUF _lsb ]
 "557
+[e $U 974  ]
+[e :U 975 ]
+[e :U 974 ]
+[e $ ! _SSP1IF 975  ]
+[e :U 976 ]
+"558
+[e = _SSP1IF -> -> 0 `i `b ]
+"560
+[e = _LATB3 -> -> 1 `i `b ]
+"561
+[e :UE 970 ]
+}
+"563
 [v _spi_init `(v ~T0 @X0 1 ef ]
 {
 [e :U _spi_init ]
 [f ]
-"560
-[e = . . _TRISCbits 0 3 -> -> 0 `i `uc ]
-"561
-[e = . . _TRISCbits 0 5 -> -> 0 `i `uc ]
-"562
-[e = . . _TRISBbits 0 3 -> -> 0 `i `uc ]
-"564
-[e = . . _LATBbits 0 3 -> -> 1 `i `uc ]
 "566
-[e = . . _SSP1CON1bits 0 0 -> -> 2 `i `uc ]
+[e = . . _TRISCbits 0 3 -> -> 0 `i `uc ]
 "567
-[e = . . _SSP1CON1bits 0 1 -> -> 0 `i `uc ]
+[e = . . _TRISCbits 0 5 -> -> 0 `i `uc ]
 "568
-[e = . . _SSP1STATbits 2 6 -> -> 1 `i `uc ]
-"569
-[e = . . _SSP1CON1bits 0 2 -> -> 1 `i `uc ]
+[e = . . _TRISBbits 0 3 -> -> 0 `i `uc ]
 "570
-[e :UE 974 ]
-}
+[e = . . _LATBbits 0 3 -> -> 1 `i `uc ]
 "572
+[e = . . _SSP1CON1bits 0 0 -> -> 2 `i `uc ]
+"573
+[e = . . _SSP1CON1bits 0 1 -> -> 0 `i `uc ]
+"574
+[e = . . _SSP1STATbits 2 6 -> -> 1 `i `uc ]
+"575
+[e = . . _SSP1CON1bits 0 2 -> -> 1 `i `uc ]
+"576
+[e :UE 977 ]
+}
+"578
 [v _adc_init `(v ~T0 @X0 1 ef ]
 {
 [e :U _adc_init ]
 [f ]
-"573
-[e = . . _ANSELAbits 0 5 -> -> 1 `i `uc ]
-"574
-[e = . . _ANSELEbits 0 0 -> -> 1 `i `uc ]
-"575
-[e = . . _ANSELBbits 0 5 -> -> 1 `i `uc ]
-"577
-[e = . . _TRISAbits 1 5 -> -> 1 `i `uc ]
-"578
-[e = . . _TRISEbits 1 0 -> -> 1 `i `uc ]
 "579
-[e = . . _TRISBbits 1 5 -> -> 1 `i `uc ]
+[e = . . _ANSELAbits 0 5 -> -> 1 `i `uc ]
+"580
+[e = . . _ANSELEbits 0 0 -> -> 1 `i `uc ]
 "581
-[e = . . _ADCON2bits 0 3 -> -> 1 `i `uc ]
-"582
-[e = . . _ADCON2bits 0 0 -> -> 6 `i `uc ]
+[e = . . _ANSELBbits 0 5 -> -> 1 `i `uc ]
 "583
-[e = . . _ADCON2bits 0 1 -> -> 6 `i `uc ]
+[e = . . _TRISAbits 1 5 -> -> 1 `i `uc ]
 "584
-[e = . . _ADCON0bits 1 0 -> -> 1 `i `uc ]
+[e = . . _TRISEbits 1 0 -> -> 1 `i `uc ]
 "585
-[e :UE 975 ]
-}
+[e = . . _TRISBbits 1 5 -> -> 1 `i `uc ]
 "587
+[e = . . _ADCON2bits 0 3 -> -> 1 `i `uc ]
+"588
+[e = . . _ADCON2bits 0 0 -> -> 6 `i `uc ]
+"589
+[e = . . _ADCON2bits 0 1 -> -> 6 `i `uc ]
+"590
+[e = . . _ADCON0bits 1 0 -> -> 1 `i `uc ]
+"591
+[e :UE 978 ]
+}
+"593
 [v _adc_read `(ui ~T0 @X0 1 ef1`uc ]
 {
 [e :U _adc_read ]
 [v _channel `uc ~T0 @X0 1 r1 ]
 [f ]
-"588
-[v _value `ui ~T0 @X0 1 a ]
-"589
-[e = . . _ADCON0bits 1 2 -> _channel `uc ]
-"591
-[e = _GODONE -> -> 1 `i `b ]
-"592
-[e $U 977  ]
-[e :U 978 ]
-[e :U 977 ]
-[e $ _GODONE 978  ]
-[e :U 979 ]
-"593
-[e = _value | -> << -> _ADRESH `i -> 8 `i `ui -> _ADRESL `ui ]
 "594
-[e ) _value ]
-[e $UE 976  ]
+[v _value `ui ~T0 @X0 1 a ]
 "595
-[e :UE 976 ]
-}
+[e = . . _ADCON0bits 1 2 -> _channel `uc ]
 "597
+[e = _GODONE -> -> 1 `i `b ]
+"598
+[e $U 980  ]
+[e :U 981 ]
+[e :U 980 ]
+[e $ _GODONE 981  ]
+[e :U 982 ]
+"599
+[e = _value | -> << -> _ADRESH `i -> 8 `i `ui -> _ADRESL `ui ]
+"600
+[e ) _value ]
+[e $UE 979  ]
+"601
+[e :UE 979 ]
+}
+"603
 [v _uart_init `(v ~T0 @X0 1 ef ]
 {
 [e :U _uart_init ]
 [f ]
-"598
-[e = . . _ANSELCbits 0 5 -> -> 0 `i `uc ]
-"599
-[e = . . _ANSELCbits 0 6 -> -> 0 `i `uc ]
-"600
-[e = . . _TRISCbits 0 6 -> -> 0 `i `uc ]
-"601
-[e = . . _TRISCbits 0 7 -> -> 1 `i `uc ]
 "604
-[e = _SPBRG1 -> -> 25 `i `uc ]
+[e = . . _ANSELCbits 0 5 -> -> 0 `i `uc ]
 "605
-[e = . . _RCSTA1bits 0 7 -> -> 1 `i `uc ]
+[e = . . _ANSELCbits 0 6 -> -> 0 `i `uc ]
 "606
-[e = . . _TXSTA1bits 0 4 -> -> 0 `i `uc ]
+[e = . . _TRISCbits 0 6 -> -> 0 `i `uc ]
 "607
-[e = . . _TXSTA1bits 0 5 -> -> 1 `i `uc ]
-"608
-[e = . . _RCSTA1bits 0 4 -> -> 1 `i `uc ]
-"609
-[e :UE 980 ]
-}
+[e = . . _TRISCbits 0 7 -> -> 1 `i `uc ]
+"610
+[e = _SPBRG1 -> -> 25 `i `uc ]
 "611
-[v _IT_init `(v ~T0 @X0 1 ef ]
+[e = . . _RCSTA1bits 0 7 -> -> 1 `i `uc ]
 "612
+[e = . . _TXSTA1bits 0 4 -> -> 0 `i `uc ]
+"613
+[e = . . _TXSTA1bits 0 5 -> -> 1 `i `uc ]
+"614
+[e = . . _RCSTA1bits 0 4 -> -> 1 `i `uc ]
+"615
+[e :UE 983 ]
+}
+"617
+[v _IT_init `(v ~T0 @X0 1 ef ]
+"618
 {
 [e :U _IT_init ]
 [f ]
-"613
-[e = _RC1IE -> -> 1 `i `b ]
-"614
-[e = _PEIE -> -> 1 `i `b ]
-"615
-[e = _GIE -> -> 1 `i `b ]
-"616
-[e = _TMR1IE -> -> 1 `i `b ]
-"617
-[e :UE 981 ]
-}
 "619
+[e = _RC1IE -> -> 1 `i `b ]
+"620
+[e = _PEIE -> -> 1 `i `b ]
+"621
+[e = _GIE -> -> 1 `i `b ]
+"622
+[e = _TMR1IE -> -> 1 `i `b ]
+"623
+[e :UE 984 ]
+}
+"625
 [v _putch `(v ~T0 @X0 1 ef1`uc ]
 {
 [e :U _putch ]
 [v _data `uc ~T0 @X0 1 r1 ]
 [f ]
-"620
-[e $U 983  ]
-[e :U 984 ]
-[e :U 983 ]
-[e $ ! _TX1IF 984  ]
-[e :U 985 ]
-"621
+"626
+[e $U 986  ]
+[e :U 987 ]
+[e :U 986 ]
+[e $ ! _TX1IF 987  ]
+[e :U 988 ]
+"627
 [e = _TXREG1 _data ]
-"622
-[e :UE 982 ]
+"628
+[e :UE 985 ]
 }
-"624
+"630
 [v _GPIO_init `(v ~T0 @X0 1 ef ]
-"625
+"631
 {
 [e :U _GPIO_init ]
 [f ]
-"626
+"632
 [e = . . _TRISDbits 0 2 -> -> 0 `i `uc ]
-"627
-[e = . . _TRISDbits 0 3 -> -> 0 `i `uc ]
-"628
-[e = . . _TRISCbits 0 4 -> -> 0 `i `uc ]
-"629
-[e = . . _TRISDbits 0 4 -> -> 0 `i `uc ]
-"630
-[e = . . _TRISDbits 0 5 -> -> 0 `i `uc ]
-"631
-[e = . . _TRISDbits 0 6 -> -> 0 `i `uc ]
 "633
-[e = . . _ANSELAbits 0 3 -> -> 0 `i `uc ]
+[e = . . _TRISDbits 0 3 -> -> 0 `i `uc ]
 "634
-[e = . . _ANSELAbits 0 2 -> -> 0 `i `uc ]
+[e = . . _TRISCbits 0 4 -> -> 0 `i `uc ]
+"635
+[e = . . _TRISDbits 0 4 -> -> 0 `i `uc ]
 "636
-[e = . . _TRISCbits 1 0 -> -> 1 `i `uc ]
+[e = . . _TRISDbits 0 5 -> -> 0 `i `uc ]
 "637
-[e = . . _TRISAbits 1 4 -> -> 1 `i `uc ]
-"638
-[e = . . _TRISAbits 1 3 -> -> 1 `i `uc ]
+[e = . . _TRISDbits 0 6 -> -> 0 `i `uc ]
 "639
-[e = . . _TRISAbits 1 2 -> -> 1 `i `uc ]
+[e = . . _ANSELAbits 0 3 -> -> 0 `i `uc ]
 "640
-[e :UE 986 ]
-}
+[e = . . _ANSELAbits 0 2 -> -> 0 `i `uc ]
 "642
+[e = . . _TRISCbits 1 0 -> -> 1 `i `uc ]
+"643
+[e = . . _TRISAbits 1 4 -> -> 1 `i `uc ]
+"644
+[e = . . _TRISAbits 1 3 -> -> 1 `i `uc ]
+"645
+[e = . . _TRISAbits 1 2 -> -> 1 `i `uc ]
+"646
+[e :UE 989 ]
+}
+"648
 [v _PWM_init `(v ~T0 @X0 1 ef ]
 {
 [e :U _PWM_init ]
 [f ]
-"644
-[e = . . _TRISCbits 1 2 -> -> 1 `i `uc ]
-"646
-[e = . . _CCPTMRS0bits 0 0 -> -> 0 `i `uc ]
-"647
-[e = _PR2 -> -> 199 `i `uc ]
-"648
-[e = . . _CCP1CONbits 0 2 -> -> 0 `i `uc ]
-"649
-[e = . . _CCP1CONbits 0 0 -> -> 12 `i `uc ]
 "650
-[e = _CCPR1L -> -> 0 `i `uc ]
-"651
-[e = . . _T2CONbits 0 0 -> -> 0 `i `uc ]
+[e = . . _TRISCbits 1 2 -> -> 1 `i `uc ]
 "652
-[e = _TMR2IF -> -> 0 `i `b ]
+[e = . . _CCPTMRS0bits 0 0 -> -> 0 `i `uc ]
 "653
-[e = _TMR2ON -> -> 1 `i `b ]
+[e = _PR2 -> -> 199 `i `uc ]
 "654
-[e $U 988  ]
-[e :U 989 ]
+[e = . . _CCP1CONbits 0 2 -> -> 0 `i `uc ]
+"655
+[e = . . _CCP1CONbits 0 0 -> -> 12 `i `uc ]
+"656
+[e = _CCPR1L -> -> 0 `i `uc ]
+"657
+[e = . . _T2CONbits 0 0 -> -> 0 `i `uc ]
+"658
+[e = _TMR2IF -> -> 0 `i `b ]
+"659
+[e = _TMR2ON -> -> 1 `i `b ]
+"660
+[e $U 991  ]
+[e :U 992 ]
 {
 }
-[e :U 988 ]
-[e $ ! _TMR2IF 989  ]
-[e :U 990 ]
-"656
+[e :U 991 ]
+[e $ ! _TMR2IF 992  ]
+[e :U 993 ]
+"662
 [e = . . _TRISCbits 1 2 -> -> 0 `i `uc ]
-"657
+"663
 [e = . . _TRISCbits 1 1 -> -> 0 `i `uc ]
-"658
-[e :UE 987 ]
+"664
+[e :UE 990 ]
 }
-"660
+"666
 [v _T1_init `(v ~T0 @X0 1 ef ]
 {
 [e :U _T1_init ]
 [f ]
-"661
+"667
 [e = . . _T1CONbits 1 5 -> -> 1 `i `uc ]
-"662
+"668
 [e = . . _T1CONbits 1 4 -> -> 3 `i `uc ]
-"663
+"669
 [e = _TMR1ON -> -> 1 `i `b ]
-"664
+"670
 [e = _TMR1IF -> -> 0 `i `b ]
-"665
-[e :UE 991 ]
+"671
+[e :UE 994 ]
 }
-[p f _sprintf 8651776 ]
 [p f _printf 8389648 ]
+[p f _sprintf 8651776 ]
 [a 4C 110 97 115 111 98 101 110 105 32 112 111 116 32 32 32 32 32 32 32 32 32 32 0 ]
 [a 6C 111 114 101 122 97 110 121 32 115 105 110 117 115 32 32 32 32 32 32 32 32 32 32 0 ]
 [a 2C 122 112 114 97 118 97 32 110 97 111 112 97 107 32 32 32 32 32 32 32 32 32 32 0 ]

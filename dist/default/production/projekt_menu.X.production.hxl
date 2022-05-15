@@ -10,15 +10,15 @@
 ### Memory Usage ###
  Intel Hex-file ranges:
   0h - 3h		(dist/default/production\projekt_menu.X.production.hex)
-  8h - 1D64h		(dist/default/production\projekt_menu.X.production.hex)
-  1D66h - 1E57h		(dist/default/production\projekt_menu.X.production.hex)
+  8h - 1D6Eh		(dist/default/production\projekt_menu.X.production.hex)
+  1D70h - 1E61h		(dist/default/production\projekt_menu.X.production.hex)
   FE40h - FFFFh		(dist/default/production\projekt_menu.X.production.hex)
   200000h - 200007h		(dist/default/production\projekt_menu.X.production.hex)
   300000h - 30000Dh		(dist/default/production\projekt_menu.X.production.hex)
  Unused ranges:
   4h - 7h
-  1D65h - 1D65h
-  1E58h - FE3Fh
+  1D6Fh - 1D6Fh
+  1E62h - FE3Fh
   10000h - 1FFFFFh
   200008h - 2FFFFFh
 
@@ -499,7 +499,7 @@
 00001D30 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00001D40 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00001D50 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
-00001D60 | H1 H1 H1 H1 H1 -- H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00001D60 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 --
 00001D70 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00001D80 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00001D90 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
@@ -514,7 +514,8 @@
 00001E20 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00001E30 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00001E40 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
-00001E50 | H1 H1 H1 H1 H1 H1 H1 H1 -- -- -- -- -- -- -- --
+00001E50 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00001E60 | H1 H1 -- -- -- -- -- -- -- -- -- -- -- -- -- --
 ----------------------------------------------------------
 0000FE40 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 0000FE50 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1

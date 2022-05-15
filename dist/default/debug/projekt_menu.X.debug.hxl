@@ -12,14 +12,14 @@
   0h - 5h		(dist/default/debug\projekt_menu.X.debug.hex)
   8h - 1D6Eh		(dist/default/debug\projekt_menu.X.debug.hex)
   1D70h - 1E61h		(dist/default/debug\projekt_menu.X.debug.hex)
-  FE3Ah - FFFEh		(dist/default/debug\projekt_menu.X.debug.hex)
+  FE40h - FFFFh		(dist/default/debug\projekt_menu.X.debug.hex)
   200000h - 200007h		(dist/default/debug\projekt_menu.X.debug.hex)
   300000h - 30000Dh		(dist/default/debug\projekt_menu.X.debug.hex)
  Unused ranges:
   6h - 7h
   1D6Fh - 1D6Fh
-  1E62h - FE39h
-  FFFFh - 1FFFFFh
+  1E62h - FE3Fh
+  10000h - 1FFFFFh
   200008h - 2FFFFFh
 
 ### Hex Memory Map ###
@@ -517,7 +517,6 @@
 00001E50 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00001E60 | H1 H1 -- -- -- -- -- -- -- -- -- -- -- -- -- --
 ----------------------------------------------------------
-0000FE30 | -- -- -- -- -- -- -- -- -- -- H1 H1 H1 H1 H1 H1
 0000FE40 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 0000FE50 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 0000FE60 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
@@ -545,7 +544,7 @@
 0000FFC0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 0000FFD0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 0000FFE0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
-0000FFF0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 --
+0000FFF0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 ----------------------------------------------------------
 00200000 | H1 H1 H1 H1 H1 H1 H1 H1 -- -- -- -- -- -- -- --
 ----------------------------------------------------------

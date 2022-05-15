@@ -10297,6 +10297,9 @@ void main(void) {
                         break;
 
                     case NEXT_LEVEL:
+                        LCD_Clear();
+                        while(1)
+                        {
                         sprintf(textLEVEL, "Next level: BTN1          ");
                         LCD_ShowString(1, textLEVEL);
                         if(PORTCbits.RC0)
@@ -10307,6 +10310,7 @@ void main(void) {
                             delay = delay/2;
                             rand_num = rand() % 1023;
                             game_state = GAME_CONTINUE;
+                            break;
                         }
                         else if(PORTAbits.RA2)
                         {
@@ -10315,7 +10319,9 @@ void main(void) {
                             {
                                 menu_position = 6;
                                 game_state = GAME_OFF;
+                                break;
                             }
+                        }
                         }
 
                         break;
